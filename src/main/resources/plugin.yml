@@ -1,0 +1,5 @@
+name: getAntyBot
+version: '${project.version}'
+main: pl.bambusmc.getantybot.Main
+api-version: '1.18'
+author: bambusmc
