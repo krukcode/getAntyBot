@@ -19,12 +19,11 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        main = this;
         getConfig().options().copyDefaults(true);
         saveDefaultConfig();
 
-        Util.setPrefix("&b" + getName());
-
-        main = this;
+        Util.Setup(main, "a");
 
         Util.sendToConsole("\n\n&b _  __ ____   _   _  _  __  ____   ___   ____   _____              _     _   _  _____  ___  ____    ___   _____ \n" +
                 "| |/ /|  _ \\ | | | || |/ / / ___| / _ \\ |  _ \\ | ____|            / \\   | \\ | ||_   _||_ _|| __ )  / _ \\ |_   _|\n" +

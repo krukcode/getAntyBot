@@ -3,6 +3,7 @@ package pl.bambusmc.getantybot.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
+import pl.bambusmc.getantybot.Main;
 
 import java.util.List;
 import java.util.regex.Matcher;
@@ -10,13 +11,21 @@ import java.util.regex.Pattern;
 
 public class Util {
 
+    public static void Setup(Main m, String color) {
+        setPrefix("&" + color + m.getDescription().getName());
+        setVersion(m.getDescription().getVersion());
+    }
+
     private static String pluginPrefix = "NO PREFIX DEFINED!";
+    private static String version = "V1.0";
     public static void sendMessage (CommandSender sender, String text) { sender.sendMessage(fix(text)); }
     public static void sendToConsole (String text) { Bukkit.getConsoleSender().sendMessage(fix(pluginPrefix + " " + text)); }
+    public static String getVersion() { return version; }
 
-    public static void setPrefix(String pluginName) {
-        pluginPrefix = "&7[" + pluginName + "&7]&r";
-    }
+    private static void setPrefix(String pluginName) { pluginPrefix = "&7[" + pluginName + "&7]&r"; }
+    private static void setVersion(String Version) { version = Version; }
+
+
 
     public static String fix(String text) {
         return fixGradient(ChatColor.translateAlternateColorCodes('&', text).replaceAll(">>", "»").replaceAll("<<", "«"));
